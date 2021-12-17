@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_front_end_interview_format_front_end_interview_formats",
+  "info": {
+    "name": "front_end_interview_format",
+    "icon": "allergies"
+  },
+  "options": {},
+  "attributes": {
+    "meta_description": {
+      "type": "json"
+    },
+    "tech": {
+      "type": "component",
+      "repeatable": true,
+      "component": "company.company"
+    }
+  }
+}
