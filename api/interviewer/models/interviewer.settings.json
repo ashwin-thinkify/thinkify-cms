@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "interviewers",
+  "info": {
+    "name": "interviewer",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email_id": {
+      "type": "email",
+      "unique": true,
+      "required": true
+    },
+    "profile_photo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "feedbacks": {
+      "via": "interviewers",
+      "collection": "feedbacks"
+    },
+    "skills": {
+      "collection": "skills"
+    },
+    "current_working_company": {
+      "model": "company-list",
+      "via": "current_working_companies"
+    },
+    "linkedIn": {
+      "type": "string"
+    }
+  }
+}

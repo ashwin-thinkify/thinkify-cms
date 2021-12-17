@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/interviewers",
+      "handler": "interviewer.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/interviewers/count",
+      "handler": "interviewer.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/interviewers/:id",
+      "handler": "interviewer.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/interviewers",
+      "handler": "interviewer.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/interviewers/:id",
+      "handler": "interviewer.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/interviewers/:id",
+      "handler": "interviewer.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
