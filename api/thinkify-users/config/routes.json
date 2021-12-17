@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/thinkify-users",
+      "handler": "thinkify-users.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/thinkify-users/count",
+      "handler": "thinkify-users.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/thinkify-users/:id",
+      "handler": "thinkify-users.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/thinkify-users",
+      "handler": "thinkify-users.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/thinkify-users/:id",
+      "handler": "thinkify-users.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/thinkify-users/:id",
+      "handler": "thinkify-users.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
