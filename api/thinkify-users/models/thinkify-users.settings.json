@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "thinkify_users",
+  "info": {
+    "name": "thinkify_users",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user_info": {
+      "plugin": "admin",
+      "model": "user"
+    },
+    "paid": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "candidate",
+        "recruiter",
+        "mentor",
+        "interviewer"
+      ]
+    }
+  }
+}
