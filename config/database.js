@@ -4,12 +4,15 @@ module.exports = ({ env }) => ({
     default: {
       connector: 'bookshelf',
       settings: {
-        client: 'sqlite',
-        filename: env('DATABASE_FILENAME', '.tmp/data.db'),
+        client: 'postgres',
+        host: env('DATABASE_HOST', 'strapi-database-1.cx8yrxwzz9jw.ap-south-1.rds.amazonaws.com'),
+        port: env.int('DATABASE_PORT', 5432),
+        database: env('DATABASE_NAME', 'thinkify'),
+        username: env('DATABASE_USERNAME', 'strapi'),
+        password: env('DATABASE_PASSWORD', 'strapi123'),
+        ssl: env.bool('DATABASE_SSL', false),
       },
-      options: {
-        useNullAsDefault: true,
-      },
+      options: {}
     },
   },
 });
