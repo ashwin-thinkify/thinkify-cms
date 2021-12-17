@@ -1,0 +1,11 @@
+{  
+    "provider": "aws-s3",  
+    "providerOptions": {
+      "accessKeyId": "AKIAT25TWOLMZYQUZGUD",
+      "secretAccessKey": "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",
+      "region": "ap-south-1",
+      "params": {
+        "Bucket": "strapi-s3-images"
+      }
+   }
+  }
