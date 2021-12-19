@@ -612,6 +612,55 @@
           "linkedIn": {
             "type": "string"
           },
+          "t_feedbacks": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "round": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "feedback": {
+                  "type": "string"
+                },
+                "notes": {
+                  "type": "string"
+                },
+                "wide_range": {
+                  "type": "component"
+                },
+                "thinkify_candidate": {
+                  "type": "string"
+                },
+                "thinkify_interviewers": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -631,6 +680,12 @@
           },
           "linkedIn": {
             "type": "string"
+          },
+          "t_feedbacks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",

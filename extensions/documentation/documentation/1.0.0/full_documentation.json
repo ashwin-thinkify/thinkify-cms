@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "12/19/2021 11:35:08 PM"
+    "x-generation-date": "12/20/2021 12:08:20 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5597,6 +5597,92 @@
               }
             }
           },
+          "thinkify_candidates": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "email_id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email_id": {
+                  "type": "string"
+                },
+                "profile_photo": {
+                  "type": "string"
+                },
+                "phone_number": {
+                  "type": "string"
+                },
+                "resume": {
+                  "type": "string"
+                },
+                "github": {
+                  "type": "string"
+                },
+                "linkedIn": {
+                  "type": "string"
+                },
+                "notice_period": {
+                  "type": "string"
+                },
+                "current_salary": {
+                  "type": "number"
+                },
+                "expected_salary": {
+                  "type": "number"
+                },
+                "designation": {
+                  "type": "string"
+                },
+                "myself_160": {
+                  "type": "string"
+                },
+                "offers_from": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "previously_worked_companies": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "current_working_company": {
+                  "type": "string"
+                },
+                "t_feedback": {
+                  "type": "string"
+                },
+                "skills": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "my_works": {
+                  "type": "component"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -5610,6 +5696,12 @@
         "properties": {
           "name": {
             "type": "string"
+          },
+          "thinkify_candidates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
@@ -5687,6 +5779,130 @@
               }
             }
           },
+          "thinkify_candidate": {
+            "required": [
+              "id",
+              "email_id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "email_id": {
+                "type": "string"
+              },
+              "profile_photo": {
+                "type": "string"
+              },
+              "phone_number": {
+                "type": "string"
+              },
+              "resume": {
+                "type": "string"
+              },
+              "github": {
+                "type": "string"
+              },
+              "linkedIn": {
+                "type": "string"
+              },
+              "notice_period": {
+                "type": "string"
+              },
+              "current_salary": {
+                "type": "number"
+              },
+              "expected_salary": {
+                "type": "number"
+              },
+              "designation": {
+                "type": "string"
+              },
+              "myself_160": {
+                "type": "string"
+              },
+              "offers_from": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "previously_worked_companies": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "current_working_company": {
+                "type": "string"
+              },
+              "t_feedback": {
+                "type": "string"
+              },
+              "skills": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "my_works": {
+                "type": "component"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "thinkify_interviewers": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "email_id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email_id": {
+                  "type": "string"
+                },
+                "profile_photo": {
+                  "type": "string"
+                },
+                "linkedIn": {
+                  "type": "string"
+                },
+                "t_feedbacks": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -5749,6 +5965,15 @@
                   }
                 }
               }
+            }
+          },
+          "thinkify_candidate": {
+            "type": "string"
+          },
+          "thinkify_interviewers": {
+            "type": "array",
+            "items": {
+              "type": "string"
             }
           },
           "published_at": {
@@ -6034,6 +6259,113 @@
               }
             }
           },
+          "t_feedback": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "round": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "feedback": {
+                "type": "string"
+              },
+              "notes": {
+                "type": "string"
+              },
+              "wide_range": {
+                "type": "component"
+              },
+              "thinkify_candidate": {
+                "type": "string"
+              },
+              "thinkify_interviewers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "logo": {
+                  "type": "string"
+                },
+                "thinkify_candidates": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "my_works": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "github_link": {
+                  "type": "string"
+                },
+                "deployed_link": {
+                  "type": "string"
+                },
+                "Description": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -6091,6 +6423,41 @@
           },
           "current_working_company": {
             "type": "string"
+          },
+          "t_feedback": {
+            "type": "string"
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "my_works": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "github_link": {
+                  "type": "string"
+                },
+                "deployed_link": {
+                  "type": "string"
+                },
+                "Description": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -6189,6 +6556,55 @@
           "linkedIn": {
             "type": "string"
           },
+          "t_feedbacks": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "round": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "feedback": {
+                  "type": "string"
+                },
+                "notes": {
+                  "type": "string"
+                },
+                "wide_range": {
+                  "type": "component"
+                },
+                "thinkify_candidate": {
+                  "type": "string"
+                },
+                "thinkify_interviewers": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -6208,6 +6624,12 @@
           },
           "linkedIn": {
             "type": "string"
+          },
+          "t_feedbacks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",

@@ -74,6 +74,20 @@
     },
     "current_working_company": {
       "model": "company-list"
+    },
+    "t_feedback": {
+      "via": "thinkify_candidate",
+      "model": "t-feedback"
+    },
+    "skills": {
+      "collection": "skills",
+      "via": "thinkify_candidates",
+      "dominant": true
+    },
+    "my_works": {
+      "type": "component",
+      "repeatable": true,
+      "component": "my-work.my-work"
     }
   }
 }
