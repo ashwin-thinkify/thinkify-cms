@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "thinkify_interviewers",
+  "info": {
+    "name": "thinkify_interviewer"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email_id": {
+      "type": "email",
+      "unique": true,
+      "required": true
+    },
+    "profile_photo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "linkedIn": {
+      "type": "string"
+    }
+  }
+}

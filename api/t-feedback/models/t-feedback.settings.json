@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "t_feedbacks",
+  "info": {
+    "name": "t_feedback",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "role": {
+      "type": "string"
+    },
+    "round": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "feedback": {
+      "type": "richtext"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "wide_range": {
+      "type": "component",
+      "repeatable": true,
+      "component": "details-topic-rating.details-topic-rating"
+    }
+  }
+}

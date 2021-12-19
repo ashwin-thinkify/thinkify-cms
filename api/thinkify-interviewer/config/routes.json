@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/thinkify-interviewers",
+      "handler": "thinkify-interviewer.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/thinkify-interviewers/count",
+      "handler": "thinkify-interviewer.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/thinkify-interviewers/:id",
+      "handler": "thinkify-interviewer.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/thinkify-interviewers",
+      "handler": "thinkify-interviewer.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/thinkify-interviewers/:id",
+      "handler": "thinkify-interviewer.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/thinkify-interviewers/:id",
+      "handler": "thinkify-interviewer.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

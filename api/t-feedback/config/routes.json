@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/t-feedbacks",
+      "handler": "t-feedback.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/t-feedbacks/count",
+      "handler": "t-feedback.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/t-feedbacks/:id",
+      "handler": "t-feedback.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/t-feedbacks",
+      "handler": "t-feedback.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/t-feedbacks/:id",
+      "handler": "t-feedback.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/t-feedbacks/:id",
+      "handler": "t-feedback.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
