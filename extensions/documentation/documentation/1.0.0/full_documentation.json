@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "12/19/2021 10:47:27 PM"
+    "x-generation-date": "12/19/2021 10:57:44 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -4750,6 +4750,102 @@
             "type": "string",
             "maxLength": 160
           },
+          "offers_from": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "website"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "logo": {
+                  "type": "string"
+                },
+                "website": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "previously_worked_companies": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "website"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "logo": {
+                  "type": "string"
+                },
+                "website": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "current_working_company": {
+            "required": [
+              "id",
+              "name",
+              "website"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "logo": {
+                "type": "string"
+              },
+              "website": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -4792,6 +4888,21 @@
           "myself_160": {
             "type": "string",
             "maxLength": 160
+          },
+          "offers_from": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "previously_worked_companies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "current_working_company": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

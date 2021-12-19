@@ -702,6 +702,102 @@
             "type": "string",
             "maxLength": 160
           },
+          "offers_from": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "website"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "logo": {
+                  "type": "string"
+                },
+                "website": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "previously_worked_companies": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "website"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "logo": {
+                  "type": "string"
+                },
+                "website": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "current_working_company": {
+            "required": [
+              "id",
+              "name",
+              "website"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "logo": {
+                "type": "string"
+              },
+              "website": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -744,6 +840,21 @@
           "myself_160": {
             "type": "string",
             "maxLength": 160
+          },
+          "offers_from": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "previously_worked_companies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "current_working_company": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

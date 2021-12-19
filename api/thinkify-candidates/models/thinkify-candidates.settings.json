@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "thinkify_candidates",
   "info": {
-    "name": "thinkify_candidates"
+    "name": "thinkify_candidates",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -64,6 +65,15 @@
     "myself_160": {
       "type": "text",
       "maxLength": 160
+    },
+    "offers_from": {
+      "collection": "company-list"
+    },
+    "previously_worked_companies": {
+      "collection": "company-list"
+    },
+    "current_working_company": {
+      "model": "company-list"
     }
   }
 }
