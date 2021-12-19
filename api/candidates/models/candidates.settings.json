@@ -1,0 +1,101 @@
+{
+  "kind": "collectionType",
+  "collectionName": "candidates",
+  "info": {
+    "name": "candidates",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email_id": {
+      "type": "email",
+      "unique": true,
+      "required": true
+    },
+    "profile_photo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "github": {
+      "type": "string",
+      "required": true
+    },
+    "linkedIn": {
+      "type": "string",
+      "required": true
+    },
+    "feedbacks": {
+      "via": "candidates",
+      "collection": "feedbacks"
+    },
+    "notice_period": {
+      "type": "string"
+    },
+    "current_salary": {
+      "type": "decimal"
+    },
+    "expected_salary": {
+      "type": "decimal"
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "skills": {
+      "collection": "skills"
+    },
+    "resume": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "offers_from": {
+      "collection": "company-list"
+    },
+    "designation": {
+      "type": "string"
+    },
+    "myself_160": {
+      "type": "text",
+      "maxLength": 160
+    },
+    "best_works": {
+      "type": "component",
+      "repeatable": true,
+      "component": "my-work.my-work"
+    },
+    "role": {
+      "type": "enumeration",
+      "enum": [
+        "backend_evelopment",
+        "frontend_development",
+        "full_stack_development",
+        "ui_ux"
+      ]
+    },
+    "rating": {
+      "type": "decimal",
+      "max": 5,
+      "min": 1,
+      "default": 1
+    }
+  }
+}
