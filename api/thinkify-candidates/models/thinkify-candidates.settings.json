@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "thinkify_candidates",
+  "info": {
+    "name": "thinkify_candidates"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email_id": {
+      "type": "email",
+      "required": true,
+      "unique": true,
+      "minLength": 4
+    },
+    "profile_photo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "resume": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "github": {
+      "type": "string"
+    },
+    "linkedIn": {
+      "type": "string"
+    },
+    "notice_period": {
+      "type": "string"
+    },
+    "current_salary": {
+      "type": "decimal"
+    },
+    "expected_salary": {
+      "type": "decimal"
+    },
+    "designation": {
+      "type": "string"
+    },
+    "myself_160": {
+      "type": "text",
+      "maxLength": 160
+    }
+  }
+}

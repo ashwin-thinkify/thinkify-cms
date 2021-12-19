@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/thinkify-candidates",
+      "handler": "thinkify-candidates.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/thinkify-candidates/count",
+      "handler": "thinkify-candidates.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/thinkify-candidates/:id",
+      "handler": "thinkify-candidates.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/thinkify-candidates",
+      "handler": "thinkify-candidates.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/thinkify-candidates/:id",
+      "handler": "thinkify-candidates.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/thinkify-candidates/:id",
+      "handler": "thinkify-candidates.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
