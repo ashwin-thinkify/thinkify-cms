@@ -26,10 +26,6 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
-    },
-    "thinkify_candidates": {
-      "via": "skills",
-      "collection": "thinkify-candidates"
     }
   }
 }

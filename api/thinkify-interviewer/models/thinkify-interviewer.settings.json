@@ -31,10 +31,6 @@
     },
     "linkedIn": {
       "type": "string"
-    },
-    "t_feedbacks": {
-      "via": "thinkify_interviewers",
-      "collection": "t-feedback"
     }
   }
 }

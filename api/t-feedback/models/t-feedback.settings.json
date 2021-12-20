@@ -31,15 +31,6 @@
       "type": "component",
       "repeatable": true,
       "component": "details-topic-rating.details-topic-rating"
-    },
-    "thinkify_candidate": {
-      "via": "t_feedback",
-      "model": "thinkify-candidates"
-    },
-    "thinkify_interviewers": {
-      "collection": "thinkify-interviewer",
-      "via": "t_feedbacks",
-      "dominant": true
     }
   }
 }
