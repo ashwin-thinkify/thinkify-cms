@@ -1,0 +1,1546 @@
+input FileInfoInput {
+  name: String
+  alternativeText: String
+  caption: String
+}
+
+type UsersPermissionsMe {
+  id: ID!
+  username: String!
+  email: String!
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsMeRole
+}
+
+type UsersPermissionsMeRole {
+  id: ID!
+  name: String!
+  description: String
+  type: String
+}
+
+input UsersPermissionsRegisterInput {
+  username: String!
+  email: String!
+  password: String!
+}
+
+input UsersPermissionsLoginInput {
+  identifier: String!
+  password: String!
+  provider: String = "local"
+}
+
+type UsersPermissionsLoginPayload {
+  jwt: String
+  user: UsersPermissionsMe!
+}
+
+type UserPermissionsPasswordPayload {
+  ok: Boolean!
+}
+
+type CompanyList {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String!
+  logo: UploadFile
+  website: String!
+  published_at: DateTime
+}
+
+type CompanyListConnection {
+  values: [CompanyList]
+  groupBy: CompanyListGroupBy
+  aggregate: CompanyListAggregator
+}
+
+type CompanyListAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type CompanyListGroupBy {
+  id: [CompanyListConnectionId]
+  created_at: [CompanyListConnectionCreated_at]
+  updated_at: [CompanyListConnectionUpdated_at]
+  name: [CompanyListConnectionName]
+  logo: [CompanyListConnectionLogo]
+  website: [CompanyListConnectionWebsite]
+  published_at: [CompanyListConnectionPublished_at]
+}
+
+type CompanyListConnectionId {
+  key: ID
+  connection: CompanyListConnection
+}
+
+type CompanyListConnectionCreated_at {
+  key: DateTime
+  connection: CompanyListConnection
+}
+
+type CompanyListConnectionUpdated_at {
+  key: DateTime
+  connection: CompanyListConnection
+}
+
+type CompanyListConnectionName {
+  key: String
+  connection: CompanyListConnection
+}
+
+type CompanyListConnectionLogo {
+  key: ID
+  connection: CompanyListConnection
+}
+
+type CompanyListConnectionWebsite {
+  key: String
+  connection: CompanyListConnection
+}
+
+type CompanyListConnectionPublished_at {
+  key: DateTime
+  connection: CompanyListConnection
+}
+
+input CompanyListInput {
+  name: String!
+  logo: ID
+  website: String!
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editCompanyListInput {
+  name: String
+  logo: ID
+  website: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createCompanyListInput {
+  data: CompanyListInput
+}
+
+type createCompanyListPayload {
+  companyList: CompanyList
+}
+
+input updateCompanyListInput {
+  where: InputID
+  data: editCompanyListInput
+}
+
+type updateCompanyListPayload {
+  companyList: CompanyList
+}
+
+input deleteCompanyListInput {
+  where: InputID
+}
+
+type deleteCompanyListPayload {
+  companyList: CompanyList
+}
+
+type Skills {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String!
+  logo: UploadFile
+  published_at: DateTime
+}
+
+type SkillsConnection {
+  values: [Skills]
+  groupBy: SkillsGroupBy
+  aggregate: SkillsAggregator
+}
+
+type SkillsAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type SkillsGroupBy {
+  id: [SkillsConnectionId]
+  created_at: [SkillsConnectionCreated_at]
+  updated_at: [SkillsConnectionUpdated_at]
+  name: [SkillsConnectionName]
+  logo: [SkillsConnectionLogo]
+  published_at: [SkillsConnectionPublished_at]
+}
+
+type SkillsConnectionId {
+  key: ID
+  connection: SkillsConnection
+}
+
+type SkillsConnectionCreated_at {
+  key: DateTime
+  connection: SkillsConnection
+}
+
+type SkillsConnectionUpdated_at {
+  key: DateTime
+  connection: SkillsConnection
+}
+
+type SkillsConnectionName {
+  key: String
+  connection: SkillsConnection
+}
+
+type SkillsConnectionLogo {
+  key: ID
+  connection: SkillsConnection
+}
+
+type SkillsConnectionPublished_at {
+  key: DateTime
+  connection: SkillsConnection
+}
+
+input SkillInput {
+  name: String!
+  logo: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editSkillInput {
+  name: String
+  logo: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createSkillInput {
+  data: SkillInput
+}
+
+type createSkillPayload {
+  skill: Skills
+}
+
+input updateSkillInput {
+  where: InputID
+  data: editSkillInput
+}
+
+type updateSkillPayload {
+  skill: Skills
+}
+
+input deleteSkillInput {
+  where: InputID
+}
+
+type deleteSkillPayload {
+  skill: Skills
+}
+
+type TFeedback {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  role: String
+  round: String
+  description: String
+  feedback: String
+  notes: String
+  wide_range: [ComponentDetailsTopicRatingDetailsTopicRating]
+  published_at: DateTime
+}
+
+type TFeedbackConnection {
+  values: [TFeedback]
+  groupBy: TFeedbackGroupBy
+  aggregate: TFeedbackAggregator
+}
+
+type TFeedbackAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type TFeedbackGroupBy {
+  id: [TFeedbackConnectionId]
+  created_at: [TFeedbackConnectionCreated_at]
+  updated_at: [TFeedbackConnectionUpdated_at]
+  role: [TFeedbackConnectionRole]
+  round: [TFeedbackConnectionRound]
+  description: [TFeedbackConnectionDescription]
+  feedback: [TFeedbackConnectionFeedback]
+  notes: [TFeedbackConnectionNotes]
+  published_at: [TFeedbackConnectionPublished_at]
+}
+
+type TFeedbackConnectionId {
+  key: ID
+  connection: TFeedbackConnection
+}
+
+type TFeedbackConnectionCreated_at {
+  key: DateTime
+  connection: TFeedbackConnection
+}
+
+type TFeedbackConnectionUpdated_at {
+  key: DateTime
+  connection: TFeedbackConnection
+}
+
+type TFeedbackConnectionRole {
+  key: String
+  connection: TFeedbackConnection
+}
+
+type TFeedbackConnectionRound {
+  key: String
+  connection: TFeedbackConnection
+}
+
+type TFeedbackConnectionDescription {
+  key: String
+  connection: TFeedbackConnection
+}
+
+type TFeedbackConnectionFeedback {
+  key: String
+  connection: TFeedbackConnection
+}
+
+type TFeedbackConnectionNotes {
+  key: String
+  connection: TFeedbackConnection
+}
+
+type TFeedbackConnectionPublished_at {
+  key: DateTime
+  connection: TFeedbackConnection
+}
+
+input TFeedbackInput {
+  role: String
+  round: String
+  description: String
+  feedback: String
+  notes: String
+  wide_range: [ComponentDetailsTopicRatingDetailsTopicRatingInput]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editTFeedbackInput {
+  role: String
+  round: String
+  description: String
+  feedback: String
+  notes: String
+  wide_range: [editComponentDetailsTopicRatingDetailsTopicRatingInput]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createTFeedbackInput {
+  data: TFeedbackInput
+}
+
+type createTFeedbackPayload {
+  tFeedback: TFeedback
+}
+
+input updateTFeedbackInput {
+  where: InputID
+  data: editTFeedbackInput
+}
+
+type updateTFeedbackPayload {
+  tFeedback: TFeedback
+}
+
+input deleteTFeedbackInput {
+  where: InputID
+}
+
+type deleteTFeedbackPayload {
+  tFeedback: TFeedback
+}
+
+type ThinkifyCandidates {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  email_id: String!
+  profile_photo: UploadFile
+  phone_number: String
+  resume: UploadFile
+  github: String
+  linkedIn: String
+  notice_period: String
+  current_salary: Float
+  expected_salary: Float
+  designation: String
+  myself_160: String
+  current_working_company: CompanyList
+  published_at: DateTime
+  offers_from(sort: String, limit: Int, start: Int, where: JSON): [CompanyList]
+  previously_worked_companies(sort: String, limit: Int, start: Int, where: JSON): [CompanyList]
+}
+
+type ThinkifyCandidatesConnection {
+  values: [ThinkifyCandidates]
+  groupBy: ThinkifyCandidatesGroupBy
+  aggregate: ThinkifyCandidatesAggregator
+}
+
+type ThinkifyCandidatesAggregator {
+  count: Int
+  totalCount: Int
+  sum: ThinkifyCandidatesAggregatorSum
+  avg: ThinkifyCandidatesAggregatorAvg
+  min: ThinkifyCandidatesAggregatorMin
+  max: ThinkifyCandidatesAggregatorMax
+}
+
+type ThinkifyCandidatesAggregatorSum {
+  current_salary: Float
+  expected_salary: Float
+}
+
+type ThinkifyCandidatesAggregatorAvg {
+  current_salary: Float
+  expected_salary: Float
+}
+
+type ThinkifyCandidatesAggregatorMin {
+  current_salary: Float
+  expected_salary: Float
+}
+
+type ThinkifyCandidatesAggregatorMax {
+  current_salary: Float
+  expected_salary: Float
+}
+
+type ThinkifyCandidatesGroupBy {
+  id: [ThinkifyCandidatesConnectionId]
+  created_at: [ThinkifyCandidatesConnectionCreated_at]
+  updated_at: [ThinkifyCandidatesConnectionUpdated_at]
+  name: [ThinkifyCandidatesConnectionName]
+  email_id: [ThinkifyCandidatesConnectionEmail_id]
+  profile_photo: [ThinkifyCandidatesConnectionProfile_photo]
+  phone_number: [ThinkifyCandidatesConnectionPhone_number]
+  resume: [ThinkifyCandidatesConnectionResume]
+  github: [ThinkifyCandidatesConnectionGithub]
+  linkedIn: [ThinkifyCandidatesConnectionLinkedIn]
+  notice_period: [ThinkifyCandidatesConnectionNotice_period]
+  current_salary: [ThinkifyCandidatesConnectionCurrent_salary]
+  expected_salary: [ThinkifyCandidatesConnectionExpected_salary]
+  designation: [ThinkifyCandidatesConnectionDesignation]
+  myself_160: [ThinkifyCandidatesConnectionMyself_160]
+  current_working_company: [ThinkifyCandidatesConnectionCurrent_working_company]
+  published_at: [ThinkifyCandidatesConnectionPublished_at]
+}
+
+type ThinkifyCandidatesConnectionId {
+  key: ID
+  connection: ThinkifyCandidatesConnection
+}
+
+type ThinkifyCandidatesConnectionCreated_at {
+  key: DateTime
+  connection: ThinkifyCandidatesConnection
+}
+
+type ThinkifyCandidatesConnectionUpdated_at {
+  key: DateTime
+  connection: ThinkifyCandidatesConnection
+}
+
+type ThinkifyCandidatesConnectionName {
+  key: String
+  connection: ThinkifyCandidatesConnection
+}
+
+type ThinkifyCandidatesConnectionEmail_id {
+  key: String
+  connection: ThinkifyCandidatesConnection
+}
+
+type ThinkifyCandidatesConnectionProfile_photo {
+  key: ID
+  connection: ThinkifyCandidatesConnection
+}
+
+type ThinkifyCandidatesConnectionPhone_number {
+  key: String
+  connection: ThinkifyCandidatesConnection
+}
+
+type ThinkifyCandidatesConnectionResume {
+  key: ID
+  connection: ThinkifyCandidatesConnection
+}
+
+type ThinkifyCandidatesConnectionGithub {
+  key: String
+  connection: ThinkifyCandidatesConnection
+}
+
+type ThinkifyCandidatesConnectionLinkedIn {
+  key: String
+  connection: ThinkifyCandidatesConnection
+}
+
+type ThinkifyCandidatesConnectionNotice_period {
+  key: String
+  connection: ThinkifyCandidatesConnection
+}
+
+type ThinkifyCandidatesConnectionCurrent_salary {
+  key: Float
+  connection: ThinkifyCandidatesConnection
+}
+
+type ThinkifyCandidatesConnectionExpected_salary {
+  key: Float
+  connection: ThinkifyCandidatesConnection
+}
+
+type ThinkifyCandidatesConnectionDesignation {
+  key: String
+  connection: ThinkifyCandidatesConnection
+}
+
+type ThinkifyCandidatesConnectionMyself_160 {
+  key: String
+  connection: ThinkifyCandidatesConnection
+}
+
+type ThinkifyCandidatesConnectionCurrent_working_company {
+  key: ID
+  connection: ThinkifyCandidatesConnection
+}
+
+type ThinkifyCandidatesConnectionPublished_at {
+  key: DateTime
+  connection: ThinkifyCandidatesConnection
+}
+
+input ThinkifyCandidateInput {
+  name: String
+  email_id: String!
+  profile_photo: ID
+  phone_number: String
+  resume: ID
+  github: String
+  linkedIn: String
+  notice_period: String
+  current_salary: Float
+  expected_salary: Float
+  designation: String
+  myself_160: String
+  offers_from: [ID]
+  previously_worked_companies: [ID]
+  current_working_company: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editThinkifyCandidateInput {
+  name: String
+  email_id: String
+  profile_photo: ID
+  phone_number: String
+  resume: ID
+  github: String
+  linkedIn: String
+  notice_period: String
+  current_salary: Float
+  expected_salary: Float
+  designation: String
+  myself_160: String
+  offers_from: [ID]
+  previously_worked_companies: [ID]
+  current_working_company: ID
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createThinkifyCandidateInput {
+  data: ThinkifyCandidateInput
+}
+
+type createThinkifyCandidatePayload {
+  thinkifyCandidate: ThinkifyCandidates
+}
+
+input updateThinkifyCandidateInput {
+  where: InputID
+  data: editThinkifyCandidateInput
+}
+
+type updateThinkifyCandidatePayload {
+  thinkifyCandidate: ThinkifyCandidates
+}
+
+input deleteThinkifyCandidateInput {
+  where: InputID
+}
+
+type deleteThinkifyCandidatePayload {
+  thinkifyCandidate: ThinkifyCandidates
+}
+
+type ThinkifyInterviewer {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  email_id: String!
+  profile_photo: UploadFile
+  linkedIn: String
+  published_at: DateTime
+}
+
+type ThinkifyInterviewerConnection {
+  values: [ThinkifyInterviewer]
+  groupBy: ThinkifyInterviewerGroupBy
+  aggregate: ThinkifyInterviewerAggregator
+}
+
+type ThinkifyInterviewerAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type ThinkifyInterviewerGroupBy {
+  id: [ThinkifyInterviewerConnectionId]
+  created_at: [ThinkifyInterviewerConnectionCreated_at]
+  updated_at: [ThinkifyInterviewerConnectionUpdated_at]
+  name: [ThinkifyInterviewerConnectionName]
+  email_id: [ThinkifyInterviewerConnectionEmail_id]
+  profile_photo: [ThinkifyInterviewerConnectionProfile_photo]
+  linkedIn: [ThinkifyInterviewerConnectionLinkedIn]
+  published_at: [ThinkifyInterviewerConnectionPublished_at]
+}
+
+type ThinkifyInterviewerConnectionId {
+  key: ID
+  connection: ThinkifyInterviewerConnection
+}
+
+type ThinkifyInterviewerConnectionCreated_at {
+  key: DateTime
+  connection: ThinkifyInterviewerConnection
+}
+
+type ThinkifyInterviewerConnectionUpdated_at {
+  key: DateTime
+  connection: ThinkifyInterviewerConnection
+}
+
+type ThinkifyInterviewerConnectionName {
+  key: String
+  connection: ThinkifyInterviewerConnection
+}
+
+type ThinkifyInterviewerConnectionEmail_id {
+  key: String
+  connection: ThinkifyInterviewerConnection
+}
+
+type ThinkifyInterviewerConnectionProfile_photo {
+  key: ID
+  connection: ThinkifyInterviewerConnection
+}
+
+type ThinkifyInterviewerConnectionLinkedIn {
+  key: String
+  connection: ThinkifyInterviewerConnection
+}
+
+type ThinkifyInterviewerConnectionPublished_at {
+  key: DateTime
+  connection: ThinkifyInterviewerConnection
+}
+
+input ThinkifyInterviewerInput {
+  name: String
+  email_id: String!
+  profile_photo: ID
+  linkedIn: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editThinkifyInterviewerInput {
+  name: String
+  email_id: String
+  profile_photo: ID
+  linkedIn: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createThinkifyInterviewerInput {
+  data: ThinkifyInterviewerInput
+}
+
+type createThinkifyInterviewerPayload {
+  thinkifyInterviewer: ThinkifyInterviewer
+}
+
+input updateThinkifyInterviewerInput {
+  where: InputID
+  data: editThinkifyInterviewerInput
+}
+
+type updateThinkifyInterviewerPayload {
+  thinkifyInterviewer: ThinkifyInterviewer
+}
+
+input deleteThinkifyInterviewerInput {
+  where: InputID
+}
+
+type deleteThinkifyInterviewerPayload {
+  thinkifyInterviewer: ThinkifyInterviewer
+}
+
+enum ENUM_THINKIFYUSERS_TYPE {
+  candidate
+  recruiter
+  mentor
+  interviewer
+}
+
+type ThinkifyUsers {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  user_info: AdminUser
+  paid: Boolean!
+  type: ENUM_THINKIFYUSERS_TYPE
+  published_at: DateTime
+}
+
+type ThinkifyUsersConnection {
+  values: [ThinkifyUsers]
+  groupBy: ThinkifyUsersGroupBy
+  aggregate: ThinkifyUsersAggregator
+}
+
+type ThinkifyUsersAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type ThinkifyUsersGroupBy {
+  id: [ThinkifyUsersConnectionId]
+  created_at: [ThinkifyUsersConnectionCreated_at]
+  updated_at: [ThinkifyUsersConnectionUpdated_at]
+  user_info: [ThinkifyUsersConnectionUser_info]
+  paid: [ThinkifyUsersConnectionPaid]
+  type: [ThinkifyUsersConnectionType]
+  published_at: [ThinkifyUsersConnectionPublished_at]
+}
+
+type ThinkifyUsersConnectionId {
+  key: ID
+  connection: ThinkifyUsersConnection
+}
+
+type ThinkifyUsersConnectionCreated_at {
+  key: DateTime
+  connection: ThinkifyUsersConnection
+}
+
+type ThinkifyUsersConnectionUpdated_at {
+  key: DateTime
+  connection: ThinkifyUsersConnection
+}
+
+type ThinkifyUsersConnectionUser_info {
+  key: ID
+  connection: ThinkifyUsersConnection
+}
+
+type ThinkifyUsersConnectionPaid {
+  key: Boolean
+  connection: ThinkifyUsersConnection
+}
+
+type ThinkifyUsersConnectionType {
+  key: String
+  connection: ThinkifyUsersConnection
+}
+
+type ThinkifyUsersConnectionPublished_at {
+  key: DateTime
+  connection: ThinkifyUsersConnection
+}
+
+input ThinkifyUserInput {
+  user_info: ID
+  paid: Boolean
+  type: ENUM_THINKIFYUSERS_TYPE
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editThinkifyUserInput {
+  user_info: ID
+  paid: Boolean
+  type: ENUM_THINKIFYUSERS_TYPE
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createThinkifyUserInput {
+  data: ThinkifyUserInput
+}
+
+type createThinkifyUserPayload {
+  thinkifyUser: ThinkifyUsers
+}
+
+input updateThinkifyUserInput {
+  where: InputID
+  data: editThinkifyUserInput
+}
+
+type updateThinkifyUserPayload {
+  thinkifyUser: ThinkifyUsers
+}
+
+input deleteThinkifyUserInput {
+  where: InputID
+}
+
+type deleteThinkifyUserPayload {
+  thinkifyUser: ThinkifyUsers
+}
+
+type I18NLocale {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  code: String
+}
+
+input LocaleInput {
+  name: String
+  code: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editLocaleInput {
+  name: String
+  code: String
+  created_by: ID
+  updated_by: ID
+}
+
+type UploadFile {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String!
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String!
+  ext: String
+  mime: String!
+  size: Float!
+  url: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  related(sort: String, limit: Int, start: Int, where: JSON): [Morph]
+}
+
+type UploadFileConnection {
+  values: [UploadFile]
+  groupBy: UploadFileGroupBy
+  aggregate: UploadFileAggregator
+}
+
+type UploadFileAggregator {
+  count: Int
+  totalCount: Int
+  sum: UploadFileAggregatorSum
+  avg: UploadFileAggregatorAvg
+  min: UploadFileAggregatorMin
+  max: UploadFileAggregatorMax
+}
+
+type UploadFileAggregatorSum {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorAvg {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorMin {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorMax {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileGroupBy {
+  id: [UploadFileConnectionId]
+  created_at: [UploadFileConnectionCreated_at]
+  updated_at: [UploadFileConnectionUpdated_at]
+  name: [UploadFileConnectionName]
+  alternativeText: [UploadFileConnectionAlternativeText]
+  caption: [UploadFileConnectionCaption]
+  width: [UploadFileConnectionWidth]
+  height: [UploadFileConnectionHeight]
+  formats: [UploadFileConnectionFormats]
+  hash: [UploadFileConnectionHash]
+  ext: [UploadFileConnectionExt]
+  mime: [UploadFileConnectionMime]
+  size: [UploadFileConnectionSize]
+  url: [UploadFileConnectionUrl]
+  previewUrl: [UploadFileConnectionPreviewUrl]
+  provider: [UploadFileConnectionProvider]
+  provider_metadata: [UploadFileConnectionProvider_metadata]
+}
+
+type UploadFileConnectionId {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCreated_at {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUpdated_at {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionName {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionAlternativeText {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCaption {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionWidth {
+  key: Int
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHeight {
+  key: Int
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionFormats {
+  key: JSON
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHash {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionExt {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionMime {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionSize {
+  key: Float
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionPreviewUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider_metadata {
+  key: JSON
+  connection: UploadFileConnection
+}
+
+input FileInput {
+  name: String!
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String!
+  ext: String
+  mime: String!
+  size: Float!
+  url: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  related: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input editFileInput {
+  name: String
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String
+  ext: String
+  mime: String
+  size: Float
+  url: String
+  previewUrl: String
+  provider: String
+  provider_metadata: JSON
+  related: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input deleteFileInput {
+  where: InputID
+}
+
+type deleteFilePayload {
+  file: UploadFile
+}
+
+type UsersPermissionsPermission {
+  id: ID!
+  type: String!
+  controller: String!
+  action: String!
+  enabled: Boolean!
+  policy: String
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsRole {
+  id: ID!
+  name: String!
+  description: String
+  type: String
+  permissions(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsPermission]
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+}
+
+type UsersPermissionsRoleConnection {
+  values: [UsersPermissionsRole]
+  groupBy: UsersPermissionsRoleGroupBy
+  aggregate: UsersPermissionsRoleAggregator
+}
+
+type UsersPermissionsRoleAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UsersPermissionsRoleGroupBy {
+  id: [UsersPermissionsRoleConnectionId]
+  name: [UsersPermissionsRoleConnectionName]
+  description: [UsersPermissionsRoleConnectionDescription]
+  type: [UsersPermissionsRoleConnectionType]
+}
+
+type UsersPermissionsRoleConnectionId {
+  key: ID
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionName {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionDescription {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionType {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+input RoleInput {
+  name: String!
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input editRoleInput {
+  name: String
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input createRoleInput {
+  data: RoleInput
+}
+
+type createRolePayload {
+  role: UsersPermissionsRole
+}
+
+input updateRoleInput {
+  where: InputID
+  data: editRoleInput
+}
+
+type updateRolePayload {
+  role: UsersPermissionsRole
+}
+
+input deleteRoleInput {
+  where: InputID
+}
+
+type deleteRolePayload {
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsUser {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  username: String!
+  email: String!
+  provider: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsUserConnection {
+  values: [UsersPermissionsUser]
+  groupBy: UsersPermissionsUserGroupBy
+  aggregate: UsersPermissionsUserAggregator
+}
+
+type UsersPermissionsUserAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UsersPermissionsUserGroupBy {
+  id: [UsersPermissionsUserConnectionId]
+  created_at: [UsersPermissionsUserConnectionCreated_at]
+  updated_at: [UsersPermissionsUserConnectionUpdated_at]
+  username: [UsersPermissionsUserConnectionUsername]
+  email: [UsersPermissionsUserConnectionEmail]
+  provider: [UsersPermissionsUserConnectionProvider]
+  confirmed: [UsersPermissionsUserConnectionConfirmed]
+  blocked: [UsersPermissionsUserConnectionBlocked]
+  role: [UsersPermissionsUserConnectionRole]
+}
+
+type UsersPermissionsUserConnectionId {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionCreated_at {
+  key: DateTime
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUpdated_at {
+  key: DateTime
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUsername {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionEmail {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionProvider {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionConfirmed {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionBlocked {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionRole {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+input UserInput {
+  username: String!
+  email: String!
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmationToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+  created_by: ID
+  updated_by: ID
+}
+
+input editUserInput {
+  username: String
+  email: String
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmationToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+  created_by: ID
+  updated_by: ID
+}
+
+input createUserInput {
+  data: UserInput
+}
+
+type createUserPayload {
+  user: UsersPermissionsUser
+}
+
+input updateUserInput {
+  where: InputID
+  data: editUserInput
+}
+
+type updateUserPayload {
+  user: UsersPermissionsUser
+}
+
+input deleteUserInput {
+  where: InputID
+}
+
+type deleteUserPayload {
+  user: UsersPermissionsUser
+}
+
+type ComponentCompanyCompany {
+  id: ID!
+}
+
+input ComponentCompanyCompanyInput {
+  _: String
+}
+
+input editComponentCompanyCompanyInput {
+  id: ID
+}
+
+type ComponentDetailsTopicRatingDetailsTopicRating {
+  id: ID!
+  topic: String
+  interview_date: DateTime
+  concepts: [ComponentTopicTopic]
+}
+
+input ComponentDetailsTopicRatingDetailsTopicRatingInput {
+  topic: String
+  interview_date: DateTime
+  concepts: [ComponentTopicTopicInput]
+}
+
+input editComponentDetailsTopicRatingDetailsTopicRatingInput {
+  id: ID
+  topic: String
+  interview_date: DateTime
+  concepts: [editComponentTopicTopicInput]
+}
+
+type ComponentFrontEndInterviewFormatFrontEndInterviewFormat {
+  id: ID!
+  meta_description: JSON
+  tech: [ComponentCompanyCompany]
+}
+
+input ComponentFrontEndInterviewFormatFrontEndInterviewFormatInput {
+  meta_description: JSON
+  tech: [ComponentCompanyCompanyInput]
+}
+
+input editComponentFrontEndInterviewFormatFrontEndInterviewFormatInput {
+  id: ID
+  meta_description: JSON
+  tech: [editComponentCompanyCompanyInput]
+}
+
+type ComponentFrontEndInterviewFormatTech {
+  id: ID!
+  name: String
+  logo: UploadFile
+}
+
+input ComponentFrontEndInterviewFormatTechInput {
+  name: String
+  logo: ID
+}
+
+input editComponentFrontEndInterviewFormatTechInput {
+  id: ID
+  name: String
+  logo: ID
+}
+
+type ComponentMyWorkMyWork {
+  id: ID!
+  name: String
+  github_link: String
+  deployed_link: String
+  Description: String
+}
+
+input ComponentMyWorkMyWorkInput {
+  name: String
+  github_link: String
+  deployed_link: String
+  Description: String
+}
+
+input editComponentMyWorkMyWorkInput {
+  id: ID
+  name: String
+  github_link: String
+  deployed_link: String
+  Description: String
+}
+
+type ComponentTopicTopic {
+  id: ID!
+  name: String
+  rating: Float
+}
+
+input ComponentTopicTopicInput {
+  name: String
+  rating: Float
+}
+
+input editComponentTopicTopicInput {
+  id: ID
+  name: String
+  rating: Float
+}
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | CompanyList | CompanyListConnection | CompanyListAggregator | CompanyListGroupBy | CompanyListConnectionId | CompanyListConnectionCreated_at | CompanyListConnectionUpdated_at | CompanyListConnectionName | CompanyListConnectionLogo | CompanyListConnectionWebsite | CompanyListConnectionPublished_at | createCompanyListPayload | updateCompanyListPayload | deleteCompanyListPayload | Skills | SkillsConnection | SkillsAggregator | SkillsGroupBy | SkillsConnectionId | SkillsConnectionCreated_at | SkillsConnectionUpdated_at | SkillsConnectionName | SkillsConnectionLogo | SkillsConnectionPublished_at | createSkillPayload | updateSkillPayload | deleteSkillPayload | TFeedback | TFeedbackConnection | TFeedbackAggregator | TFeedbackGroupBy | TFeedbackConnectionId | TFeedbackConnectionCreated_at | TFeedbackConnectionUpdated_at | TFeedbackConnectionRole | TFeedbackConnectionRound | TFeedbackConnectionDescription | TFeedbackConnectionFeedback | TFeedbackConnectionNotes | TFeedbackConnectionPublished_at | createTFeedbackPayload | updateTFeedbackPayload | deleteTFeedbackPayload | ThinkifyCandidates | ThinkifyCandidatesConnection | ThinkifyCandidatesAggregator | ThinkifyCandidatesAggregatorSum | ThinkifyCandidatesAggregatorAvg | ThinkifyCandidatesAggregatorMin | ThinkifyCandidatesAggregatorMax | ThinkifyCandidatesGroupBy | ThinkifyCandidatesConnectionId | ThinkifyCandidatesConnectionCreated_at | ThinkifyCandidatesConnectionUpdated_at | ThinkifyCandidatesConnectionName | ThinkifyCandidatesConnectionEmail_id | ThinkifyCandidatesConnectionProfile_photo | ThinkifyCandidatesConnectionPhone_number | ThinkifyCandidatesConnectionResume | ThinkifyCandidatesConnectionGithub | ThinkifyCandidatesConnectionLinkedIn | ThinkifyCandidatesConnectionNotice_period | ThinkifyCandidatesConnectionCurrent_salary | ThinkifyCandidatesConnectionExpected_salary | ThinkifyCandidatesConnectionDesignation | ThinkifyCandidatesConnectionMyself_160 | ThinkifyCandidatesConnectionCurrent_working_company | ThinkifyCandidatesConnectionPublished_at | createThinkifyCandidatePayload | updateThinkifyCandidatePayload | deleteThinkifyCandidatePayload | ThinkifyInterviewer | ThinkifyInterviewerConnection | ThinkifyInterviewerAggregator | ThinkifyInterviewerGroupBy | ThinkifyInterviewerConnectionId | ThinkifyInterviewerConnectionCreated_at | ThinkifyInterviewerConnectionUpdated_at | ThinkifyInterviewerConnectionName | ThinkifyInterviewerConnectionEmail_id | ThinkifyInterviewerConnectionProfile_photo | ThinkifyInterviewerConnectionLinkedIn | ThinkifyInterviewerConnectionPublished_at | createThinkifyInterviewerPayload | updateThinkifyInterviewerPayload | deleteThinkifyInterviewerPayload | ThinkifyUsers | ThinkifyUsersConnection | ThinkifyUsersAggregator | ThinkifyUsersGroupBy | ThinkifyUsersConnectionId | ThinkifyUsersConnectionCreated_at | ThinkifyUsersConnectionUpdated_at | ThinkifyUsersConnectionUser_info | ThinkifyUsersConnectionPaid | ThinkifyUsersConnectionType | ThinkifyUsersConnectionPublished_at | createThinkifyUserPayload | updateThinkifyUserPayload | deleteThinkifyUserPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload | ComponentCompanyCompany | ComponentDetailsTopicRatingDetailsTopicRating | ComponentFrontEndInterviewFormatFrontEndInterviewFormat | ComponentFrontEndInterviewFormatTech | ComponentMyWorkMyWork | ComponentTopicTopic
+
+input InputID {
+  id: ID!
+}
+
+enum PublicationState {
+  LIVE
+  PREVIEW
+}
+
+type AdminUser {
+  id: ID!
+  username: String
+  firstname: String!
+  lastname: String!
+}
+
+type Query {
+  companyList(id: ID!, publicationState: PublicationState): CompanyList
+  companyLists(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [CompanyList]
+  companyListsConnection(sort: String, limit: Int, start: Int, where: JSON): CompanyListConnection
+  skill(id: ID!, publicationState: PublicationState): Skills
+  skills(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Skills]
+  skillsConnection(sort: String, limit: Int, start: Int, where: JSON): SkillsConnection
+  tFeedback(id: ID!, publicationState: PublicationState): TFeedback
+  tFeedbacks(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [TFeedback]
+  tFeedbacksConnection(sort: String, limit: Int, start: Int, where: JSON): TFeedbackConnection
+  thinkifyCandidate(id: ID!, publicationState: PublicationState): ThinkifyCandidates
+  thinkifyCandidates(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [ThinkifyCandidates]
+  thinkifyCandidatesConnection(sort: String, limit: Int, start: Int, where: JSON): ThinkifyCandidatesConnection
+  thinkifyInterviewer(id: ID!, publicationState: PublicationState): ThinkifyInterviewer
+  thinkifyInterviewers(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [ThinkifyInterviewer]
+  thinkifyInterviewersConnection(sort: String, limit: Int, start: Int, where: JSON): ThinkifyInterviewerConnection
+  thinkifyUser(id: ID!, publicationState: PublicationState): ThinkifyUsers
+  thinkifyUsers(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [ThinkifyUsers]
+  thinkifyUsersConnection(sort: String, limit: Int, start: Int, where: JSON): ThinkifyUsersConnection
+  files(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UploadFile]
+  filesConnection(sort: String, limit: Int, start: Int, where: JSON): UploadFileConnection
+  role(id: ID!, publicationState: PublicationState): UsersPermissionsRole
+
+  """
+  Retrieve all the existing roles. You can't apply filters on this query.
+  """
+  roles(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UsersPermissionsRole]
+  rolesConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsRoleConnection
+  user(id: ID!, publicationState: PublicationState): UsersPermissionsUser
+  users(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UsersPermissionsUser]
+  usersConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsUserConnection
+  me: UsersPermissionsMe
+}
+
+type Mutation {
+  createCompanyList(input: createCompanyListInput): createCompanyListPayload
+  updateCompanyList(input: updateCompanyListInput): updateCompanyListPayload
+  deleteCompanyList(input: deleteCompanyListInput): deleteCompanyListPayload
+  createSkill(input: createSkillInput): createSkillPayload
+  updateSkill(input: updateSkillInput): updateSkillPayload
+  deleteSkill(input: deleteSkillInput): deleteSkillPayload
+  createTFeedback(input: createTFeedbackInput): createTFeedbackPayload
+  updateTFeedback(input: updateTFeedbackInput): updateTFeedbackPayload
+  deleteTFeedback(input: deleteTFeedbackInput): deleteTFeedbackPayload
+  createThinkifyCandidate(input: createThinkifyCandidateInput): createThinkifyCandidatePayload
+  updateThinkifyCandidate(input: updateThinkifyCandidateInput): updateThinkifyCandidatePayload
+  deleteThinkifyCandidate(input: deleteThinkifyCandidateInput): deleteThinkifyCandidatePayload
+  createThinkifyInterviewer(input: createThinkifyInterviewerInput): createThinkifyInterviewerPayload
+  updateThinkifyInterviewer(input: updateThinkifyInterviewerInput): updateThinkifyInterviewerPayload
+  deleteThinkifyInterviewer(input: deleteThinkifyInterviewerInput): deleteThinkifyInterviewerPayload
+  createThinkifyUser(input: createThinkifyUserInput): createThinkifyUserPayload
+  updateThinkifyUser(input: updateThinkifyUserInput): updateThinkifyUserPayload
+  deleteThinkifyUser(input: deleteThinkifyUserInput): deleteThinkifyUserPayload
+
+  """Delete one file"""
+  deleteFile(input: deleteFileInput): deleteFilePayload
+
+  """Create a new role"""
+  createRole(input: createRoleInput): createRolePayload
+
+  """Update an existing role"""
+  updateRole(input: updateRoleInput): updateRolePayload
+
+  """Delete an existing role"""
+  deleteRole(input: deleteRoleInput): deleteRolePayload
+
+  """Create a new user"""
+  createUser(input: createUserInput): createUserPayload
+
+  """Update an existing user"""
+  updateUser(input: updateUserInput): updateUserPayload
+
+  """Delete an existing user"""
+  deleteUser(input: deleteUserInput): deleteUserPayload
+  upload(refId: ID, ref: String, field: String, source: String, info: FileInfoInput, file: Upload!): UploadFile!
+  multipleUpload(refId: ID, ref: String, field: String, source: String, files: [Upload]!): [UploadFile]!
+  updateFileInfo(id: ID!, info: FileInfoInput!): UploadFile!
+  login(input: UsersPermissionsLoginInput!): UsersPermissionsLoginPayload!
+  register(input: UsersPermissionsRegisterInput!): UsersPermissionsLoginPayload!
+  forgotPassword(email: String!): UserPermissionsPasswordPayload
+  resetPassword(password: String!, passwordConfirmation: String!, code: String!): UsersPermissionsLoginPayload
+  emailConfirmation(confirmation: String!): UsersPermissionsLoginPayload
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+"""A time string with format: HH:mm:ss.SSS"""
+scalar Time
+
+"""
+A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar Date
+
+"""The `Long` scalar type represents 52-bit integers"""
+scalar Long
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
