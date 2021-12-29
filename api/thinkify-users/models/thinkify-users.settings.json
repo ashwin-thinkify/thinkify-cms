@@ -12,10 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "user_info": {
-      "plugin": "admin",
-      "model": "user"
-    },
     "paid": {
       "type": "boolean",
       "default": false,
@@ -29,6 +25,11 @@
         "mentor",
         "interviewer"
       ]
+    },
+    "user_id": {
+      "type": "integer",
+      "required": true,
+      "unique": true
     }
   }
 }

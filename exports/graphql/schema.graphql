@@ -738,9 +738,9 @@ type ThinkifyUsers {
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
-  user_info: AdminUser
   paid: Boolean!
   type: ENUM_THINKIFYUSERS_TYPE
+  user_id: Int!
   published_at: DateTime
 }
 
@@ -753,15 +753,35 @@ type ThinkifyUsersConnection {
 type ThinkifyUsersAggregator {
   count: Int
   totalCount: Int
+  sum: ThinkifyUsersAggregatorSum
+  avg: ThinkifyUsersAggregatorAvg
+  min: ThinkifyUsersAggregatorMin
+  max: ThinkifyUsersAggregatorMax
+}
+
+type ThinkifyUsersAggregatorSum {
+  user_id: Float
+}
+
+type ThinkifyUsersAggregatorAvg {
+  user_id: Float
+}
+
+type ThinkifyUsersAggregatorMin {
+  user_id: Float
+}
+
+type ThinkifyUsersAggregatorMax {
+  user_id: Float
 }
 
 type ThinkifyUsersGroupBy {
   id: [ThinkifyUsersConnectionId]
   created_at: [ThinkifyUsersConnectionCreated_at]
   updated_at: [ThinkifyUsersConnectionUpdated_at]
-  user_info: [ThinkifyUsersConnectionUser_info]
   paid: [ThinkifyUsersConnectionPaid]
   type: [ThinkifyUsersConnectionType]
+  user_id: [ThinkifyUsersConnectionUser_id]
   published_at: [ThinkifyUsersConnectionPublished_at]
 }
 
@@ -780,11 +800,6 @@ type ThinkifyUsersConnectionUpdated_at {
   connection: ThinkifyUsersConnection
 }
 
-type ThinkifyUsersConnectionUser_info {
-  key: ID
-  connection: ThinkifyUsersConnection
-}
-
 type ThinkifyUsersConnectionPaid {
   key: Boolean
   connection: ThinkifyUsersConnection
@@ -795,24 +810,29 @@ type ThinkifyUsersConnectionType {
   connection: ThinkifyUsersConnection
 }
 
+type ThinkifyUsersConnectionUser_id {
+  key: Int
+  connection: ThinkifyUsersConnection
+}
+
 type ThinkifyUsersConnectionPublished_at {
   key: DateTime
   connection: ThinkifyUsersConnection
 }
 
 input ThinkifyUserInput {
-  user_info: ID
   paid: Boolean
   type: ENUM_THINKIFYUSERS_TYPE
+  user_id: Int!
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
 input editThinkifyUserInput {
-  user_info: ID
   paid: Boolean
   type: ENUM_THINKIFYUSERS_TYPE
+  user_id: Int
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -1419,7 +1439,7 @@ input editComponentTopicTopicInput {
   rating: Float
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | CompanyList | CompanyListConnection | CompanyListAggregator | CompanyListGroupBy | CompanyListConnectionId | CompanyListConnectionCreated_at | CompanyListConnectionUpdated_at | CompanyListConnectionName | CompanyListConnectionLogo | CompanyListConnectionWebsite | CompanyListConnectionPublished_at | createCompanyListPayload | updateCompanyListPayload | deleteCompanyListPayload | Skills | SkillsConnection | SkillsAggregator | SkillsGroupBy | SkillsConnectionId | SkillsConnectionCreated_at | SkillsConnectionUpdated_at | SkillsConnectionName | SkillsConnectionLogo | SkillsConnectionPublished_at | createSkillPayload | updateSkillPayload | deleteSkillPayload | TFeedback | TFeedbackConnection | TFeedbackAggregator | TFeedbackGroupBy | TFeedbackConnectionId | TFeedbackConnectionCreated_at | TFeedbackConnectionUpdated_at | TFeedbackConnectionRole | TFeedbackConnectionRound | TFeedbackConnectionDescription | TFeedbackConnectionFeedback | TFeedbackConnectionNotes | TFeedbackConnectionPublished_at | createTFeedbackPayload | updateTFeedbackPayload | deleteTFeedbackPayload | ThinkifyCandidates | ThinkifyCandidatesConnection | ThinkifyCandidatesAggregator | ThinkifyCandidatesAggregatorSum | ThinkifyCandidatesAggregatorAvg | ThinkifyCandidatesAggregatorMin | ThinkifyCandidatesAggregatorMax | ThinkifyCandidatesGroupBy | ThinkifyCandidatesConnectionId | ThinkifyCandidatesConnectionCreated_at | ThinkifyCandidatesConnectionUpdated_at | ThinkifyCandidatesConnectionName | ThinkifyCandidatesConnectionEmail_id | ThinkifyCandidatesConnectionProfile_photo | ThinkifyCandidatesConnectionPhone_number | ThinkifyCandidatesConnectionResume | ThinkifyCandidatesConnectionGithub | ThinkifyCandidatesConnectionLinkedIn | ThinkifyCandidatesConnectionNotice_period | ThinkifyCandidatesConnectionCurrent_salary | ThinkifyCandidatesConnectionExpected_salary | ThinkifyCandidatesConnectionDesignation | ThinkifyCandidatesConnectionMyself_160 | ThinkifyCandidatesConnectionCurrent_working_company | ThinkifyCandidatesConnectionPublished_at | createThinkifyCandidatePayload | updateThinkifyCandidatePayload | deleteThinkifyCandidatePayload | ThinkifyInterviewer | ThinkifyInterviewerConnection | ThinkifyInterviewerAggregator | ThinkifyInterviewerGroupBy | ThinkifyInterviewerConnectionId | ThinkifyInterviewerConnectionCreated_at | ThinkifyInterviewerConnectionUpdated_at | ThinkifyInterviewerConnectionName | ThinkifyInterviewerConnectionEmail_id | ThinkifyInterviewerConnectionProfile_photo | ThinkifyInterviewerConnectionLinkedIn | ThinkifyInterviewerConnectionPublished_at | createThinkifyInterviewerPayload | updateThinkifyInterviewerPayload | deleteThinkifyInterviewerPayload | ThinkifyUsers | ThinkifyUsersConnection | ThinkifyUsersAggregator | ThinkifyUsersGroupBy | ThinkifyUsersConnectionId | ThinkifyUsersConnectionCreated_at | ThinkifyUsersConnectionUpdated_at | ThinkifyUsersConnectionUser_info | ThinkifyUsersConnectionPaid | ThinkifyUsersConnectionType | ThinkifyUsersConnectionPublished_at | createThinkifyUserPayload | updateThinkifyUserPayload | deleteThinkifyUserPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload | ComponentCompanyCompany | ComponentDetailsTopicRatingDetailsTopicRating | ComponentFrontEndInterviewFormatFrontEndInterviewFormat | ComponentFrontEndInterviewFormatTech | ComponentMyWorkMyWork | ComponentTopicTopic
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | CompanyList | CompanyListConnection | CompanyListAggregator | CompanyListGroupBy | CompanyListConnectionId | CompanyListConnectionCreated_at | CompanyListConnectionUpdated_at | CompanyListConnectionName | CompanyListConnectionLogo | CompanyListConnectionWebsite | CompanyListConnectionPublished_at | createCompanyListPayload | updateCompanyListPayload | deleteCompanyListPayload | Skills | SkillsConnection | SkillsAggregator | SkillsGroupBy | SkillsConnectionId | SkillsConnectionCreated_at | SkillsConnectionUpdated_at | SkillsConnectionName | SkillsConnectionLogo | SkillsConnectionPublished_at | createSkillPayload | updateSkillPayload | deleteSkillPayload | TFeedback | TFeedbackConnection | TFeedbackAggregator | TFeedbackGroupBy | TFeedbackConnectionId | TFeedbackConnectionCreated_at | TFeedbackConnectionUpdated_at | TFeedbackConnectionRole | TFeedbackConnectionRound | TFeedbackConnectionDescription | TFeedbackConnectionFeedback | TFeedbackConnectionNotes | TFeedbackConnectionPublished_at | createTFeedbackPayload | updateTFeedbackPayload | deleteTFeedbackPayload | ThinkifyCandidates | ThinkifyCandidatesConnection | ThinkifyCandidatesAggregator | ThinkifyCandidatesAggregatorSum | ThinkifyCandidatesAggregatorAvg | ThinkifyCandidatesAggregatorMin | ThinkifyCandidatesAggregatorMax | ThinkifyCandidatesGroupBy | ThinkifyCandidatesConnectionId | ThinkifyCandidatesConnectionCreated_at | ThinkifyCandidatesConnectionUpdated_at | ThinkifyCandidatesConnectionName | ThinkifyCandidatesConnectionEmail_id | ThinkifyCandidatesConnectionProfile_photo | ThinkifyCandidatesConnectionPhone_number | ThinkifyCandidatesConnectionResume | ThinkifyCandidatesConnectionGithub | ThinkifyCandidatesConnectionLinkedIn | ThinkifyCandidatesConnectionNotice_period | ThinkifyCandidatesConnectionCurrent_salary | ThinkifyCandidatesConnectionExpected_salary | ThinkifyCandidatesConnectionDesignation | ThinkifyCandidatesConnectionMyself_160 | ThinkifyCandidatesConnectionCurrent_working_company | ThinkifyCandidatesConnectionPublished_at | createThinkifyCandidatePayload | updateThinkifyCandidatePayload | deleteThinkifyCandidatePayload | ThinkifyInterviewer | ThinkifyInterviewerConnection | ThinkifyInterviewerAggregator | ThinkifyInterviewerGroupBy | ThinkifyInterviewerConnectionId | ThinkifyInterviewerConnectionCreated_at | ThinkifyInterviewerConnectionUpdated_at | ThinkifyInterviewerConnectionName | ThinkifyInterviewerConnectionEmail_id | ThinkifyInterviewerConnectionProfile_photo | ThinkifyInterviewerConnectionLinkedIn | ThinkifyInterviewerConnectionPublished_at | createThinkifyInterviewerPayload | updateThinkifyInterviewerPayload | deleteThinkifyInterviewerPayload | ThinkifyUsers | ThinkifyUsersConnection | ThinkifyUsersAggregator | ThinkifyUsersAggregatorSum | ThinkifyUsersAggregatorAvg | ThinkifyUsersAggregatorMin | ThinkifyUsersAggregatorMax | ThinkifyUsersGroupBy | ThinkifyUsersConnectionId | ThinkifyUsersConnectionCreated_at | ThinkifyUsersConnectionUpdated_at | ThinkifyUsersConnectionPaid | ThinkifyUsersConnectionType | ThinkifyUsersConnectionUser_id | ThinkifyUsersConnectionPublished_at | createThinkifyUserPayload | updateThinkifyUserPayload | deleteThinkifyUserPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload | ComponentCompanyCompany | ComponentDetailsTopicRatingDetailsTopicRating | ComponentFrontEndInterviewFormatFrontEndInterviewFormat | ComponentFrontEndInterviewFormatTech | ComponentMyWorkMyWork | ComponentTopicTopic
 
 input InputID {
   id: ID!

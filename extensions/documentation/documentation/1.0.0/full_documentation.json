@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "12/19/2021 11:35:08 PM"
+    "x-generation-date": "12/29/2021 12:56:23 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6224,58 +6224,12 @@
       "Thinkify-users": {
         "required": [
           "id",
-          "paid"
+          "paid",
+          "user_id"
         ],
         "properties": {
           "id": {
             "type": "string"
-          },
-          "user_info": {
-            "required": [
-              "id",
-              "email"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "firstname": {
-                "type": "string"
-              },
-              "lastname": {
-                "type": "string"
-              },
-              "username": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "password": {
-                "type": "string"
-              },
-              "resetPasswordToken": {
-                "type": "string"
-              },
-              "registrationToken": {
-                "type": "string"
-              },
-              "isActive": {
-                "type": "boolean"
-              },
-              "roles": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "blocked": {
-                "type": "boolean"
-              },
-              "preferedLanguage": {
-                "type": "string"
-              }
-            }
           },
           "paid": {
             "type": "boolean",
@@ -6289,6 +6243,9 @@
               "mentor",
               "interviewer"
             ]
+          },
+          "user_id": {
+            "type": "integer"
           },
           "published_at": {
             "type": "string",
@@ -6298,12 +6255,10 @@
       },
       "NewThinkify-users": {
         "required": [
-          "paid"
+          "paid",
+          "user_id"
         ],
         "properties": {
-          "user_info": {
-            "type": "string"
-          },
           "paid": {
             "type": "boolean",
             "default": false
@@ -6316,6 +6271,9 @@
               "mentor",
               "interviewer"
             ]
+          },
+          "user_id": {
+            "type": "integer"
           },
           "published_at": {
             "type": "string",

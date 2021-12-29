@@ -530,58 +530,12 @@
       "Thinkify-users": {
         "required": [
           "id",
-          "paid"
+          "paid",
+          "user_id"
         ],
         "properties": {
           "id": {
             "type": "string"
-          },
-          "user_info": {
-            "required": [
-              "id",
-              "email"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "firstname": {
-                "type": "string"
-              },
-              "lastname": {
-                "type": "string"
-              },
-              "username": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "password": {
-                "type": "string"
-              },
-              "resetPasswordToken": {
-                "type": "string"
-              },
-              "registrationToken": {
-                "type": "string"
-              },
-              "isActive": {
-                "type": "boolean"
-              },
-              "roles": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "blocked": {
-                "type": "boolean"
-              },
-              "preferedLanguage": {
-                "type": "string"
-              }
-            }
           },
           "paid": {
             "type": "boolean",
@@ -595,6 +549,9 @@
               "mentor",
               "interviewer"
             ]
+          },
+          "user_id": {
+            "type": "integer"
           },
           "published_at": {
             "type": "string",
@@ -604,12 +561,10 @@
       },
       "NewThinkify-users": {
         "required": [
-          "paid"
+          "paid",
+          "user_id"
         ],
         "properties": {
-          "user_info": {
-            "type": "string"
-          },
           "paid": {
             "type": "boolean",
             "default": false
@@ -622,6 +577,9 @@
               "mentor",
               "interviewer"
             ]
+          },
+          "user_id": {
+            "type": "integer"
           },
           "published_at": {
             "type": "string",
